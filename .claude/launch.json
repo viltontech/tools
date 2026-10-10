@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "codelabs-build",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "9090", "--directory", "build"],
+      "port": 9090
+    }
+  ]
+}
