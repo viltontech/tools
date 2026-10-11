@@ -118,6 +118,22 @@ func isButton(hn *html.Node) bool {
 	return hn.DataAtom == atom.Button
 }
 
+// downloadPrefixes are the button label prefixes that get a download icon.
+// Besides the original English one, Spanish labels are accepted because
+// Vilton codelabs are written in Spanish.
+var downloadPrefixes = []string{"download ", "descargá ", "descarga ", "descargar "}
+
+// isDownloadLabel reports whether a button label should get a download icon.
+func isDownloadLabel(label string) bool {
+	s := strings.ToLower(label)
+	for _, p := range downloadPrefixes {
+		if strings.HasPrefix(s, p) {
+			return true
+		}
+	}
+	return false
+}
+
 func isAside(hn *html.Node) bool {
 	return hn.DataAtom == atom.Aside
 }

@@ -49,7 +49,7 @@ tags: gmail,principiante
 | Advertencia (amarillo) | `Negative` en una línea y `: texto` en la siguiente |
 | Código | bloque con lenguaje: ` ```javascript `, ` ```bash `… |
 | Comandos de terminal | bloque ` ```console ` (sale como texto plano, sin resaltado) |
-| Botón | `<button>[Download el material](https://…)</button>` |
+| Botón | `<button>[Descargá la plantilla](https://…)</button>`: cualquier enlace dentro de `<button>` se ve como botón. Lleva ícono de descarga si el texto empieza con "Descargá", "Descarga", "Descargar" o "Download" |
 | Imagen | `![Texto alternativo](img/archivo.png)` |
 | YouTube | `<video id="ID_DEL_VIDEO"></video>` |
 | Iframe embebido | `![https://dominio-permitido/…](img/placeholder.png)`: el texto alternativo es la URL |
@@ -63,6 +63,64 @@ Detalles que rompen cosas:
 - **Lista con checks:** solo los encabezados en inglés "What you'll learn", "What we've covered" y "Frequently Asked Questions" tienen estilo especial. En español ("Qué vas a aprender") se ven como encabezados normales; está bien, no los traduzcas al inglés salvo que lo pidan.
 - Infoboxes: deja una línea en blanco antes de `Positive`/`Negative`.
 - No uses HTML arbitrario: lo que no es una de las construcciones anteriores se descarta.
+
+### También funciona (probado en este fork)
+
+- **Texto:** `**negrita**`, `*cursiva*`, `` `código en línea` ``, enlaces `[texto](url)` (abren en pestaña nueva), listas numeradas y con viñetas, sublistas, tablas.
+- **Imagen o código dentro de un paso numerado:** indentá con 3 espacios bajo el ítem y dejá una línea en blanco antes:
+
+  ````markdown
+  2. Hacé clic en **Configuración**.
+
+     ![Botón Configuración arriba a la derecha de Gmail](img/gmail-configuracion.png)
+
+  3. Pegá esta fórmula en la celda **B2**:
+
+     ```
+     =SUMA(A2:A10)
+     ```
+  ````
+
+- **Ancho de imagen:** `<img src="img/archivo.png" width="400" alt="…">` (útil para capturas de un botón o un menú chico, que a ancho completo se ven gigantes).
+- **Título al pasar el mouse:** `![alt](img/archivo.png "Título")`.
+- **GIF animado:** `![alt](img/flujo.gif)`, se copia y se reproduce igual que una imagen.
+- **Presentaciones, Documentos, Hojas y videos de Google Drive embebidos** (iframe con `docs.google.com` o `drive.google.com`):
+  - Presentaciones: `![https://docs.google.com/presentation/d/<ID>/embed](img/placeholder.png)`
+  - Documentos y Hojas: `…/document/d/<ID>/preview` o `…/spreadsheets/d/<ID>/preview`
+  - Video de Drive: `![https://drive.google.com/file/d/<ID>/preview](img/placeholder.png)`
+  - El archivo tiene que estar compartido con "Cualquier persona con el enlace" (o con el dominio del alumno); si no, el alumno ve un error de acceso. Anotá en tu respuesta final qué archivos hay que compartir.
+- **Infobox con otra sintaxis:** `> aside positive` / `> aside negative` en la primera línea de una cita.
+
+### No funciona (no lo uses)
+
+| Qué | Qué pasa | Alternativa |
+|---|---|---|
+| `~~tachado~~` | Se ven los `~~` | Reescribí la frase |
+| Listas de tareas `- [ ]` | Se ve `[ ]` literal | Lista numerada |
+| Video `.mp4`, audio | Se descarta | Subilo a YouTube y usá `<video id>`, o un GIF corto |
+| Secciones desplegables, pestañas | Se descarta el HTML | Paso `(Opcional)` aparte o un infobox |
+| Cuestionario con respuesta correcta | La encuesta (`<form>`) solo registra la elección, no corrige | Pregunta + "Tendrías que ver…" con la respuesta |
+| Imágenes remotas | `claat` falla | Descargala a `codelabs/img/` |
+
+### Qué usar en cada escenario
+
+| Escenario | Usá |
+|---|---|
+| Clics en una interfaz (Gmail, Drive, consola de administración) | Lista numerada, una acción por ítem, botones en **negrita**, captura indentada bajo el ítem donde hay que encontrar algo |
+| Un botón o menú chico | Captura recortada con `<img … width="300">` |
+| Un flujo de varios clics seguidos o algo que se mueve (arrastrar, animaciones) | GIF corto (menos de 10 s) |
+| Fórmulas de Sheets | Bloque de código sin lenguaje (no hay resaltado para fórmulas) y aclaración de la celda donde va |
+| Apps Script | Bloque ` ```javascript ` |
+| Prompts para Gemini, textos para copiar (correos, respuestas automáticas) | Bloque de código sin lenguaje, así el alumno lo copia tal cual |
+| Comandos de terminal | Bloque ` ```bash ` (o ` ```console ` si es salida) |
+| Comparar opciones, planes o permisos | Tabla |
+| Atajo de teclado o buena práctica | `Positive` |
+| Acción irreversible, error común, requisito del administrador | `Negative` |
+| Explicación en video ya existente | `<video id="…"></video>` de YouTube, o un video de Drive con `…/preview` |
+| Mostrar diapositivas o un documento de referencia | Presentación o Documento embebido con `/embed` o `/preview` |
+| Herramienta interactiva (CodePen, StackBlitz) | Iframe con un dominio permitido |
+| Material para descargar (plantilla, archivo de ejemplo) | `<button>[Descargá …](url)</button>`; para una plantilla de Docs o Sheets, el enlace `…/copy` que crea una copia en la cuenta del alumno |
+| Saber el nivel o el objetivo del alumno | Encuesta `<form>` en la introducción (máximo una o dos por codelab) |
 
 ## Estilo Vilton
 

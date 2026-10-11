@@ -870,8 +870,7 @@ func button(ds *docState) nodes.Node {
 		return nil
 	}
 
-	s := strings.ToLower(stringifyNode(a, true))
-	dl := strings.HasPrefix(s, "download ")
+	dl := isDownloadLabel(stringifyNode(a, true))
 	btn := nodes.NewButtonNode(true, true, dl, n...)
 
 	ln := nodes.NewURLNode(href, btn)

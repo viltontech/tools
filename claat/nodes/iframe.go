@@ -8,6 +8,8 @@ var IframeAllowlist = []string{
 	"dartlang.org",
 	"dartpad.dev",
 	"demo.arcade.software",
+	"docs.google.com",
+	"drive.google.com",
 	"github.com",
 	"glitch.com",
 	"google.com",

@@ -1122,6 +1122,27 @@ func TestIsButton(t *testing.T) {
 	}
 }
 
+func TestIsDownloadLabel(t *testing.T) {
+	tests := []struct {
+		in  string
+		out bool
+	}{
+		{in: "Download the code", out: true},
+		{in: "DOWNLOAD the code", out: true},
+		{in: "Descargá la plantilla", out: true},
+		{in: "Descarga el ejemplo", out: true},
+		{in: "Descargar el archivo", out: true},
+		{in: "Abrí la presentación", out: false},
+		{in: "Downloads", out: false},
+		{in: "Descargas recientes", out: false},
+	}
+	for _, tc := range tests {
+		if got := isDownloadLabel(tc.in); got != tc.out {
+			t.Errorf("isDownloadLabel(%q) = %t, want %t", tc.in, got, tc.out)
+		}
+	}
+}
+
 func TestIsAside(t *testing.T) {
 	a1 := makeAsideNode()
 	a2 := makeTextNode("foobar")

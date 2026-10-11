@@ -68,7 +68,7 @@ export function saludar(nombre) {
 |---|---|---|
 | Paso | `## Título` | Nueva sección en el índice lateral |
 | Infobox | `Positive` + `: texto` | Recuadro verde |
-| Botón | enlace que empieza con "Download" | Botón con icono |
+| Botón | enlace dentro de `<button>` | Botón (con ícono si dice "Descargá…") |
 
 ## Imágenes y botones
 Duration: 0:03:00
@@ -77,9 +77,9 @@ Las imágenes locales se copian a la carpeta `img` del codelab exportado, con un
 
 ![Ejemplo de codelab renderizado](img/ejemplo.png)
 
-Los enlaces cuyo texto empieza con la palabra "Download" se renderizan como botón:
+Un enlace dentro de `<button>` se ve como botón. Si el texto empieza con "Descargá", lleva ícono de descarga:
 
-<button>[Download el código de ejemplo](https://github.com/viltontech/tools/archive/refs/heads/main.zip)</button>
+<button>[Descargá el código de ejemplo](https://github.com/viltontech/tools/archive/refs/heads/main.zip)</button>
 
 ## Exportá y publicá
 Duration: 0:04:00
