@@ -1,4 +1,4 @@
-author: Vilton.tech
+authors: Vilton.tech
 summary: Un codelab de demostración para validar el flujo completo de autoría y publicación en Vilton Codelabs.
 id: vilton-demo
 categories: demo,vilton
@@ -14,7 +14,7 @@ Duration: 0:02:00
 
 Este es un codelab de demostración. Sirve para ver cómo se transforma un archivo Markdown en un tutorial interactivo con pasos, barra de progreso y tiempo estimado.
 
-### Qué aprenderás
+### Qué vas a aprender
 
 * Cómo se estructura un codelab en Markdown
 * Qué construcciones especiales existen: infoboxes, botones, código
@@ -32,7 +32,7 @@ Positive
 Negative
 : Los infoboxes negativos sirven para advertencias. No borres la carpeta `img` después de exportar.
 
-## Escribe el contenido
+## Escribí el contenido
 Duration: 0:05:00
 
 Cada paso del codelab es un encabezado de nivel 2. Lo que sigue hasta el próximo encabezado de nivel 2 pertenece a ese paso.
@@ -81,10 +81,10 @@ Los enlaces cuyo texto empieza con la palabra "Download" se renderizan como bot�
 
 <button>[Download el código de ejemplo](https://github.com/viltontech/tools/archive/refs/heads/main.zip)</button>
 
-## Exporta y publica
+## Exportá y publicá
 Duration: 0:04:00
 
-Con el archivo listo, exporta el codelab a HTML:
+Con el archivo listo, exportá el codelab a HTML:
 
 ```bash
 ./claat/bin/claat export -o build codelabs/vilton-demo.md
@@ -92,7 +92,7 @@ Con el archivo listo, exporta el codelab a HTML:
 
 El resultado es una carpeta `build/vilton-demo` con un `index.html`, un `codelab.json` con los metadatos y la carpeta `img`.
 
-Para verlo en local, sirve la carpeta `build` con cualquier servidor estático:
+Para verlo en local, serví la carpeta `build` con cualquier servidor estático:
 
 ```bash
 python3 -m http.server 9090 --directory build
@@ -114,5 +114,5 @@ Completaste el codelab de demostración.
 
 ### Próximos pasos
 
-* Escribe tu propio codelab en la carpeta `codelabs`
-* Revisa la [guía de formato](https://github.com/viltontech/tools/blob/main/FORMAT-GUIDE.md)
+* Escribí tu propio codelab en la carpeta `codelabs`
+* Revisá la [guía de formato](https://github.com/viltontech/tools/blob/main/FORMAT-GUIDE.md)
